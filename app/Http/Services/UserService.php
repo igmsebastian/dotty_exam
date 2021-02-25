@@ -64,7 +64,7 @@ class UserService
     }
 
     /**
-     * Fetch the current order items of the user.
+     * Fetch the current orders of the user.
      *
      * @return \Illuminate\Support\Collection
      */

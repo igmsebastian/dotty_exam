@@ -38,7 +38,8 @@ class ProductController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\Product\CreateRequest  $request
+     * @param  \App\Http\Services\MediaService  $service
      * @return \Illuminate\Http\Response
      */
     public function store(CreateRequest $request, MediaService $service)
@@ -60,6 +61,7 @@ class ProductController extends Controller
      * Display the specified resource.
      *
      * @param  \App\Models\Product  $product
+     * @param  \App\Http\Services\MediaService  $service
      * @return \Illuminate\Http\Response
      */
     public function show(Product $product, MediaService $service)
@@ -81,8 +83,9 @@ class ProductController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\Product\UpdateRequest  $request
      * @param  \App\Models\Product  $product
+     * @param  \App\Http\Services\MediaService  $service
      * @return \Illuminate\Http\Response
      */
     public function update(UpdateRequest $request, Product $product, MediaService $service)

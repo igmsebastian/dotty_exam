@@ -3,17 +3,14 @@
 namespace App\Http\Controllers\User;
 
 use App\Models\Order;
-use App\Enums\CacheKey;
 use App\Models\Product;
 use App\Enums\MediaGroup;
 use App\Models\OrderItem;
 use App\Enums\OrderStatus;
 use Illuminate\Http\Request;
 use App\Http\Services\UserService;
-use Illuminate\Support\Collection;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Cache;
 use Gloudemans\Shoppingcart\Facades\Cart;
 
 class HomeController extends Controller
@@ -31,6 +28,7 @@ class HomeController extends Controller
     /**
      * Display a listing of the resource.
      *
+     * @param \App\Http\Services\UserService $service
      * @return \Illuminate\Http\Response
      */
     public function index(UserService $service)
@@ -55,6 +53,7 @@ class HomeController extends Controller
     /**
      * Add Instance to Cart.
      *
+     * @param \App\Models\Product $product
      * @return \Illuminate\Http\Response
      */
     public function addToCart(Product $product)
@@ -70,6 +69,7 @@ class HomeController extends Controller
      * Perform purchase on the cart.
      *
      * @param  \Illuminate\Http\Request  $request
+     * @param \App\Http\Services\UserService $service
      * @return \Illuminate\Http\Response
      */
     public function purchase(Request $request, UserService $service)
@@ -77,7 +77,7 @@ class HomeController extends Controller
         // Get user instance.
         $user = $service->getInstance();
 
-        // Made a purchase
+        // Make a purchase
         $order = Order::create([
             'user_id' => $user->id,
             'email' => $user->email,

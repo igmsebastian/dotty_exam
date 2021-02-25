@@ -25,7 +25,7 @@ class OrderController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Product  $product
+     * @param  \App\Models\Order  $order
      * @return \Illuminate\Http\Response
      */
     public function show(Order $order)
@@ -36,6 +36,7 @@ class OrderController extends Controller
     /**
      * Display the specified resource.
      *
+     * @param  \App\Models\Order  $order
      * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
