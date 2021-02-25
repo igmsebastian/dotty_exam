@@ -17,7 +17,8 @@
                                 <th class="text-center">Name</th>
                                 <th>Author</th>
                                 <th>Price</th>
-                                <th  class="text-center text-danger" colspan="2">* Downloadable Once Admin Completed the Order *</th>
+                                <th class="text-center" colspan="2">Media</th>
+                                <th></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -28,19 +29,18 @@
                                 <td>₱{{ number_format($item->product->price,2) }}</td>
                                 <td></td>
                                 <td class="td-actions text-center">
-                                    @if ($item->order->status == \App\Enums\OrderStatus::COMPLETED)
+                                    <audio controls controlsList="nodownload">
+                                        <source src="{{ $item->product->getFirstMedia(\App\Enums\MediaGroup::PRODUCTS)->getFullUrl() }}">
+                                        Your browser does not support the audio element.
+                                    </audio>
+                                </td>
+                                <td>
                                     <form method="POST" action="{{ route('order.item.download', ['order' => $order, 'product' => $item->product]) }}">
                                         @csrf
                                         <button type="submit" class="btn btn-danger">
                                         Download
                                     </button>
                                     </form>
-                                    @else
-                                    <audio controls controlsList="nodownload">
-                                        <source src="{{ $item->product->getFirstMedia(\App\Enums\MediaGroup::PRODUCTS)->getFullUrl() }}">
-                                        Your browser does not support the audio element.
-                                    </audio>
-                                    @endif
                                 </td>
                             </tr>
                             @empty
