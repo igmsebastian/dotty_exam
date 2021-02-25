@@ -8,11 +8,17 @@
 |     PHP      | ^7.4.15  |
 |    MYSQL     |   ^5.7   |
 
+## Sites
+
+|          User           |            Admin             |
+| :---------------------: | :--------------------------: |
+| http://ecommerce.test/ | http://ecommerce.test/admin |
+
 ## Configuration
 
 1.  Clone this repository.
     ```bash
-        $   git clone https://github.com/commude/grapush-dev.git
+        $   git clone https://github.com/igmsebastian/dotty_exam.git
     ```
 2.  Recreate environment variable file.
     ```bash
@@ -26,19 +32,15 @@
     ```bash
         $   composer install
     ```
-4.  Install NPM
-    ```bash
-        $   npm install
-    ```
-5.  Generate Application Key
+4.  Generate Application Key
     ```bash
         $   php artisan key:generate
     ```
-6.  Execute Database Migration and Seeders
+5.  Execute Database Migration and Seeders
     ```bash
-        $   php artisan migrate
+        $   php artisan migrate -- seed
     ```
-7.  Create a symlink for Storage in Public Directory
+6.  Create a symlink for Storage in Public Directory
     ```bash
         $   php artisan storage:link
     ```
@@ -118,9 +120,9 @@
 
 ## Deployment
 
-|               Develop               | Staging | Production |
-| :---------------------------------: | :-----: | :--------: |
-| [mock](http://grapush.commude.biz/) | -soon-  |   -soon-   |
+| Develop | Staging | Production |
+| :-----: | :-----: | :--------: |
+| -soon-  | -soon-  |   -soon-   |
 
 ## Branching and Versioning
 
