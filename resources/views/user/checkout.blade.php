@@ -81,12 +81,11 @@
                                     @auth('user')
                                     <form method="POST" action="{{ route('purchase') }}">
                                         @csrf
-                                        <button type="submit" class="btn btn-danger btn-fill btn-lg"> Complete Purchase</button>
+                                        <button type="submit" class="btn btn-danger btn-fill btn-lg" {{ \Cart::count() == 0 ? 'disabled' : '' }}> Complete Purchase</button>
                                     </form>
                                     @endauth
                                     @guest('user')
-                                    <button type="button" class="btn btn-danger btn-fill btn-lg" data-toggle="modal"
-                                        data-target="#loginModal">
+                                    <button type="button" class="btn btn-danger btn-fill btn-lg" data-toggle="modal" data-target="#loginModal" {{ \Cart::count() == 0 ? 'disabled' : '' }}>
                                         Complete Purchase
                                     </button>
                                     @endguest
@@ -126,4 +125,5 @@
 @endsection
 
 @push('scripts')
+
 @endpush

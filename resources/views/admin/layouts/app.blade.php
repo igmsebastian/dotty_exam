@@ -50,8 +50,37 @@
 <script src="{{ asset('dashboard') }}/js/perfect-scrollbar.min.js" type="text/javascript"></script>
 <script src="{{ asset('dashboard') }}/js/bootstrap.min.js" type="text/javascript"></script>
 
+<!--  Forms Validations Plugin -->
+<script src="{{ asset('dashboard') }}/js/jquery.validate.min.js"></script>
+
+<!-- Promise Library for SweetAlert2 working on IE -->
+<script src="{{ asset('dashboard') }}/js/es6-promise-auto.min.js"></script>
+
+<!--  Select Picker Plugin -->
+<script src="{{ asset('dashboard') }}/js/bootstrap-selectpicker.js"></script>
+
+<!--  Checkbox, Radio, Switch and Tags Input Plugins -->
+<script src="{{ asset('dashboard') }}/js/bootstrap-switch-tags.js"></script>
+
+<!--  Bootstrap Table Plugin    -->
+<script src="{{ asset('dashboard') }}/js/bootstrap-table.js"></script>
+
+<!--  Plugin for DataTables.net  -->
+<script src="{{ asset('dashboard') }}/js/jquery.datatables.js"></script>
+
 <!-- Paper Dashboard PRO Core javascript and methods for Demo purpose -->
 <script src="{{ asset('dashboard') }}/js/paper-dashboard.js"></script>
+
+<!-- Paper Dashboard PRO DEMO methods, don't include it in your project! -->
+<script src="{{ asset('dashboard') }}/js/demo.js"></script>
+
+<script type="text/javascript">
+    $().ready(function(){
+        $('#registerFormValidation').validate();
+        $('#loginFormValidation').validate();
+        $('#allInputsFormValidation').validate();
+    });
+</script>
 
 @stack('scripts')
 
