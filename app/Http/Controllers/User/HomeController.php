@@ -83,7 +83,8 @@ class HomeController extends Controller
             'email' => $user->email,
             'qty' => intval(Cart::count()),
             'total' => Cart::content()->sum('price'),
-            'status' => OrderStatus::PENDING
+            // 'status' => OrderStatus::PENDING
+            'status' => OrderStatus::COMPLETED
         ]);
 
         $products = Cart::content()->map(function($item) use ($order){

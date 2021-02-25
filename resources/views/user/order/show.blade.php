@@ -35,12 +35,14 @@
                                     </audio>
                                 </td>
                                 <td>
+                                    @if ($item->order->status == \App\Enums\OrderStatus::COMPLETED)
                                     <form method="POST" action="{{ route('order.item.download', ['order' => $order, 'product' => $item->product]) }}">
                                         @csrf
                                         <button type="submit" class="btn btn-danger">
                                         Download
                                     </button>
                                     </form>
+                                    @endif
                                 </td>
                             </tr>
                             @empty

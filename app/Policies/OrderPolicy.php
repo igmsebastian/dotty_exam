@@ -36,11 +36,10 @@ class OrderPolicy
      */
     public function download(?User $user, Order $order, Product $product)
     {
-        // $isUserOwnedOrder = (new UserService)->getOrders()->contains($order->id);
-        // $isOrderCompleted = $order->status === OrderStatus::COMPLETED;
+        $isUserOwnedOrder = (new UserService)->getOrders()->contains($order->id);
+        $isOrderCompleted = $order->status === OrderStatus::COMPLETED;
 
-        // return $isUserOwnedOrder && $isOrderCompleted;
-        return (new UserService)->getOrders()->contains($order->id);
+        return $isUserOwnedOrder && $isOrderCompleted;
     }
 
 }
